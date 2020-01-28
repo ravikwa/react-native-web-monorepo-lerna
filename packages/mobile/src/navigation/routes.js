@@ -1,26 +1,13 @@
-import React from 'react'; // eslint-disable-line no-unused-vars
-import { createSwitchNavigator, createStackNavigator } from 'react-navigation';
-import defaultNavigationOptions from './navigationOptions';
-import HomeScreen from '../screens/Home';
-import LoadingScreen from '../screens/Loading';
-import ProfileScreen from '../screens/Profile';
+import { createStackNavigator } from "react-navigation";
+import LoginScreen from "shared/src/screens/LoginScreen";
+import RegisterScreen from "shared/src/screens/RegisterScreen";
 
-export const MainStack = createStackNavigator({
-	Home: HomeScreen,
-	Profile: ProfileScreen,
-}, {
-	initialRouteName: 'Home',
-	defaultNavigationOptions
-});
-
-/**
- * Root
- */
-export const RootStack = createSwitchNavigator({
-	Loading: LoadingScreen,
-	Main: MainStack,
-}, {
-	initialRouteName: 'Main',
-	mode: 'modal',
-	headerMode: 'none',
-});
+export const navigator = createStackNavigator(
+	{
+		Login: LoginScreen,
+		Register: RegisterScreen
+	},
+	{
+		initialRouteName: "Login"
+	}
+);
