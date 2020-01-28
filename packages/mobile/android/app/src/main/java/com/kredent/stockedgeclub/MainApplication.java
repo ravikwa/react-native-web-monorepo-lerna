@@ -30,9 +30,9 @@ public class MainApplication extends Activity implements DefaultHardwareBackBtnH
                 .setCurrentActivity(this)
                 .setBundleAssetName("index.android.bundle")
                 .setJSMainModulePath("index")
-                .addPackage(new MainReactPackage(),
-            new VectorIconsPackage(),
-            new RNGestureHandlerPackage())
+                .addPackage(new MainReactPackage())
+                .addPackage(new VectorIconsPackage())
+                .addPackage(new RNGestureHandlerPackage())
                 .setUseDeveloperSupport(BuildConfig.DEBUG)
                 .setInitialLifecycleState(LifecycleState.RESUMED)
                 .build();
@@ -81,10 +81,11 @@ public class MainApplication extends Activity implements DefaultHardwareBackBtnH
 
     @Override
     public void onBackPressed() {
-        Intent a = new Intent(Intent.ACTION_MAIN);
-        a.addCategory(Intent.CATEGORY_HOME);
-        a.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(a);
+        if (mReactInstanceManager != null) {
+            mReactInstanceManager.onBackPressed();
+        } else {
+            super.onBackPressed();
+        }
     }
 
     @Override

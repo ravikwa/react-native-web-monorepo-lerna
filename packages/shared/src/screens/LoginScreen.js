@@ -1,10 +1,12 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { Text, View, TouchableOpacity } from "react-native";
 
-const LoginScreen = () => {
+const LoginScreen = ({ navigation }) => {
 	return (
 		<View>
-			<Text>LoginScreen</Text>
+			<TouchableOpacity onPress={() => navigation.navigate("Register")}>
+				<Text>LoginScreen</Text>
+			</TouchableOpacity>
 		</View>
 	);
 };
