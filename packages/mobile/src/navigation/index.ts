@@ -9,7 +9,10 @@ const navigator = createStackNavigator(
     Register: RegisterScreen
   },
   {
-    initialRouteName: "Login"
+    initialRouteName: "Login",
+    defaultNavigationOptions: {
+      headerShown: false
+    }
   }
 );
 
