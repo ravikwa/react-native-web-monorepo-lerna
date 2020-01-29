@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Router } from "react-router";
+import { Route, Router } from "react-router-dom";
 import { createBrowserHistory as createHistory } from "history";
 import LoginScreen from "shared/src/screens/LoginScreen";
 import RegisterScreen from "shared/src/screens/RegisterScreen";
