@@ -40,6 +40,7 @@ project.ext.react = [
 ]
 
 dependencies {
+    implementation project(':react-native-safe-area-context')
     implementation project(':react-native-vector-icons')
     implementation project(':react-native-gesture-handler')
     implementation 'org.webkit:android-jsc:+'

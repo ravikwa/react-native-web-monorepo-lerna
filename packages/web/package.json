@@ -1,47 +1,58 @@
 {
-	"name": "web",
-	"version": "0.1.0",
-	"private": true,
-	"dependencies": {
-		"material-icons-react": "^1.0.4",
-		"react": "16.6.3",
-		"react-app-rewire-aliases": "^0.2.0",
-		"react-app-rewired": "^1.6.2",
-		"react-art": "^16.6.3",
-		"react-dom": "16.6.3",
-		"react-native-web": "^0.9.9",
-		"react-router-dom": "^4.3.1",
-		"react-scripts": "2.1.1",
-		"shared": "0.0.1",
-		"styled-components": "^4.1.2"
-	},
-	"devDependencies": {
-		"eslint-config-airbnb": "^17.1.0",
-		"eslint-config-rallycoding": "github:StephenGrider/ESLint-Rallycoding#3/head"
-	},
-	"peerDependencies": {
-		"babel-eslint": "*",
-		"eslint": "*",
-		"eslint-plugin-import": "*",
-		"eslint-plugin-jsx-a11y": "*",
-		"eslint-plugin-react": "*",
-		"react-router": "*",
-		"history": "*"
-	},
-	"scripts": {
-		"start": "react-app-rewired start",
-		"build": "react-app-rewired build",
-		"test": "react-app-rewired test",
-		"eject": "react-scripts eject",
-		"lint": "eslint ./"
-	},
-	"eslintConfig": {
-		"extends": "react-app"
-	},
-	"browserslist": [
-		">0.2%",
-		"not dead",
-		"not ie <= 11",
-		"not op_mini all"
-	]
+  "name": "web",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "react": "^16.12.0",
+    "react-app-rewire-aliases": "^0.2.0",
+    "react-app-rewired": "^2.1.5",
+    "react-art": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-native-web": "^0.12.0",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "^3.3.0",
+    "shared": "0.0.1"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.19",
+    "@typescript-eslint/eslint-plugin": "^2.18.0",
+    "@typescript-eslint/parser": "^2.18.0",
+    "concurrently": "^5.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-import": "^2.20.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.18.0",
+    "eslint-plugin-react-hooks": "^2.3.0",
+    "prettier": "^1.19.1",
+    "typescript": "^3.7.5"
+  },
+  "peerDependencies": {
+    "babel-eslint": "*",
+    "history": "*",
+    "react-router": "*"
+  },
+  "scripts": {
+    "compile": "tsc -b",
+    "prestart": "yarn compile",
+    "start": "concurrently \"yarn compile -- -w --incremental\" \"yarn _start\"",
+    "_start": "react-app-rewired start",
+    "prebuild": "yarn compile",
+    "build": "react-app-rewired build",
+    "pretest": "yarn compile",
+    "test": "react-app-rewired test",
+    "eject": "react-scripts eject",
+    "lint": "eslint ./"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }

@@ -1,16 +1,44 @@
 {
-	"name": "root",
-	"version": "1.0.0",
-	"private": true,
-	"scripts": {
-		"clean": "rm -rf ./packages/*/node_modules",
-		"clean-locks": "rm -rf ./packages/*/yarn.lock",
-		"bootstrap": "lerna bootstrap",
-		"reset": "yarn clean && yarn clean-locks && yarn bootstrap",
-		"web": "cd packages/web && yarn start",
-		"android": "cd packages/mobile && yarn android"
-	},
-	"devDependencies": {
-		"lerna": "^3.3.0"
-	}
+  "name": "root",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "compile": "tsc -b --incremental",
+    "clean": "rm -rf ./packages/*/node_modules",
+    "clean-locks": "rm -rf ./packages/*/yarn.lock",
+    "bootstrap": "lerna bootstrap",
+    "reset": "yarn clean && yarn clean-locks && yarn bootstrap",
+    "web": "cd packages/web && yarn start",
+    "android": "cd packages/mobile && yarn android",
+    "ios": "cd packages/mobile && yarn ios",
+    "release": "standard-version",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix ."
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "cz-conventional-changelog": "^3.1.0",
+    "husky": "^4.2.1",
+    "lerna": "^3.20.2",
+    "lint-staged": "^10.0.3",
+    "standard-version": "^7.1.0"
+  },
+  "lint-staged": {
+    "*.{ts, tsx, json}": [
+      "eslint --fix",
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }

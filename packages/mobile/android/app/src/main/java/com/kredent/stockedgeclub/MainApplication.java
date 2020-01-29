@@ -9,11 +9,14 @@ import android.view.KeyEvent;
 
 import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactRootView;
-import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
-import com.oblador.vectoricons.VectorIconsPackage;
+
+
 import com.facebook.react.common.LifecycleState;
 import com.facebook.react.modules.core.DefaultHardwareBackBtnHandler;
 import com.facebook.react.shell.MainReactPackage;
+import com.th3rdwave.safeareacontext.SafeAreaContextPackage;
+import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
+import com.oblador.vectoricons.VectorIconsPackage;
 
 public class MainApplication extends Activity implements DefaultHardwareBackBtnHandler {
     private ReactRootView mReactRootView;
@@ -31,6 +34,7 @@ public class MainApplication extends Activity implements DefaultHardwareBackBtnH
                 .setBundleAssetName("index.android.bundle")
                 .setJSMainModulePath("index")
                 .addPackage(new MainReactPackage())
+                .addPackage(new SafeAreaContextPackage())
                 .addPackage(new VectorIconsPackage())
                 .addPackage(new RNGestureHandlerPackage())
                 .setUseDeveloperSupport(BuildConfig.DEBUG)

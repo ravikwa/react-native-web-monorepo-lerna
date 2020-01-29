@@ -1,35 +1,76 @@
-# Started kit to build a cross platform app with React Native and React Web.
+# Stock Edge Club
 
-# Install
+This is a social media for stock market wizards.
 
-- Run `yarn bootstrap`
+## Getting Started
 
-# Web Version
-- Run `cd packages/web && yarn start`
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-# Native Version
+### Prerequisites
 
-## iOS
-- Run `cd packages/mobile && yarn ios`
+You need to have Node.js > v10.0 and npm or yarn installed to run this app from your pc.
 
-## Android
-- Run `cd packages/mobile && yarn android`
+### Installing the required modules
 
-# Built with
+Install the npm modules by typing the following command:
+
+```bash
+yarn
+```
+
+or
+
+```bash
+npm install
+```
+
+Next install commitizen globally by running the following command:
+
+```bash
+yarn global add commitizen
+```
+
+or
+
+```bash
+npm install -g commitizen
+```
+
+### Dependency installation
+
+The repository contains three packages namely:
+
+1. app
+2. common
+3. web
+
+To install a dependency under a particular package, either go to the directory and install the dependency, or run the following command from root:
+
+```bash
+yarn workspace <package-name> add <dependency-name>
+```
+
+### Commit Process
+
+1. Stage all files by running: `git add .` or individually by running `git add <filename>`.
+2. Commit the file by running `git cz` and going through the flow.
+
+### Release Process
+
+Run the following command to release a build:
+
+```bash
+yarn run release
+```
+
+or
+
+```bash
+npm run release
+```
+
+## Built With
 
 - Lerna
-- Create-react-app
 - React Native
 - React Native Web
-- Styled-component
-- Styled-System
-- React Navigation
-- React Router
-- Redux
-- Immer
-
-# Requirement
-
-- Lerna >= 3.3.0
-- React Native >= 0.57
-- React Native Cli >= 2.0

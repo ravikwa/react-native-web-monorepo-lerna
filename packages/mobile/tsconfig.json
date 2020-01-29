@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "typeRoots": ["@types", "../../node_modules/@types"],
+    "resolveJsonModule": true
+  },
+  "include": ["index.ts", "src"],
+  "references": [
+    {
+      "path": "../shared"
+    }
+  ]
+}
