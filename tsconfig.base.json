@@ -14,5 +14,6 @@
     "skipLibCheck": true,
     "sourceMap": true,
     "strict": true
-  }
+  },
+  "exclude": ["dist"]
 }
